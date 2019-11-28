@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { EnvironmentService } from '../mock-servers/environment.service';
 import {filter} from 'rxjs/operators';
+import {EnvironmentService} from '../services/environment.service';
 
 @Component({
   selector: 'ct-git-agent',

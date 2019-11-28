@@ -18,11 +18,9 @@ import { DataDiscoverCollectionComponent } from './data-discover-collection/data
 import {HttpClientModule} from '@angular/common/http';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {AgGridModule} from '@ag-grid-community/angular';
-import { MockServerComponent } from './mock-server/mock-server.component';
 import { UserManagementComponent } from './user-management/user-management.component';
-import { GitAgentComponent } from './git-agent/git-agent.component';
-import { CreateTenantComponent } from './create-tenant/create-tenant.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {MockServerModule} from './mock-server/mock-server.module';
 
 @NgModule({
   declarations: [
@@ -36,10 +34,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     EditTypesComponent,
     ProtocolAutomationComponent,
     DataDiscoverCollectionComponent,
-    MockServerComponent,
     UserManagementComponent,
-    GitAgentComponent,
-    CreateTenantComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +45,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     FlexLayoutModule,
     NgxChartsModule,
     AgGridModule.withComponents([]),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MockServerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
