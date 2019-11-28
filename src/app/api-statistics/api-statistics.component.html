@@ -1,0 +1,13 @@
+<div class="height--100" fxLayoutAlign="center center">
+  <div class="h-p-80 width--100">
+    <ngx-charts-bar-vertical
+      [results]="products"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showDataLabel]=true
+      (select)="onSelect($event)">
+    </ngx-charts-bar-vertical>
+  </div>
+</div>
