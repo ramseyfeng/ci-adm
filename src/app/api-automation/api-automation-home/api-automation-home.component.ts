@@ -2,11 +2,11 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSidenav} from '@angular/material';
 
 @Component({
-  selector: 'ct-data-discover',
-  templateUrl: './data-discover.component.html',
-  styleUrls: ['./data-discover.component.scss']
+  selector: 'ct-api-automation-home',
+  templateUrl: './api-automation-home.component.html',
+  styleUrls: ['./api-automation-home.component.scss']
 })
-export class DataDiscoverComponent implements OnInit {
+export class ApiAutomationHomeComponent implements OnInit {
   @ViewChild('sidenav', {static: false}) sidenav: MatSidenav;
   reason = '';
   constructor() { }
@@ -18,5 +18,6 @@ export class DataDiscoverComponent implements OnInit {
     this.reason = reason;
     this.sidenav.close();
   }
+
 
 }
