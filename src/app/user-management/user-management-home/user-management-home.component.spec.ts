@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProtocolAutomationComponent } from './protocol-automation.component';
+import { UserManagementHomeComponent } from './user-management-home.component';
 
-describe('ProtocolAutomationComponent', () => {
-  let component: ProtocolAutomationComponent;
-  let fixture: ComponentFixture<ProtocolAutomationComponent>;
+describe('UserManagementHomeComponent', () => {
+  let component: UserManagementHomeComponent;
+  let fixture: ComponentFixture<UserManagementHomeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProtocolAutomationComponent ]
+      declarations: [ UserManagementHomeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProtocolAutomationComponent);
+    fixture = TestBed.createComponent(UserManagementHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

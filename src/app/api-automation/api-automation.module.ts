@@ -5,7 +5,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from '../material/material.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {DataDiscoverComponent} from './data-discover/data-discover.component';
 import {CoveredCasesComponent} from './covered-cases/covered-cases.component';
@@ -32,7 +31,6 @@ import {AgGridModule} from '@ag-grid-community/angular';
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    ReactiveFormsModule,
     NgxChartsModule,
     AgGridModule.withComponents([]),
     RouterModule.forChild([

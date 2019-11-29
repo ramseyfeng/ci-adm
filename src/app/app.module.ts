@@ -3,39 +3,28 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MaterialModule} from './material/material.module';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { MaterialModule } from './material/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarComponent } from './navbar/navbar.component';
-import {HttpClientModule} from '@angular/common/http';
-import {NgxChartsModule} from '@swimlane/ngx-charts';
-import {AgGridModule} from '@ag-grid-community/angular';
-import { UserManagementComponent } from './user-management/user-management.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import {MockServerModule} from './mock-server/mock-server.module';
-import {ApiAutomationModule} from './api-automation/api-automation.module';
-import {ProtocolAutomationComponent} from './protocol-automation/protocol-automation.component';
+import { MockServerModule } from './mock-server/mock-server.module';
+import { ApiAutomationModule } from './api-automation/api-automation.module';
+import { ProtocolAutomationModule } from './protocol-automation/protocol-automation.module';
+import {UserManagementModule} from './user-management/user-management.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    ProtocolAutomationComponent,
-    UserManagementComponent,
-  ],
+  declarations: [AppComponent, NavbarComponent],
   imports: [
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    NgxChartsModule,
-    AgGridModule.withComponents([]),
-    ReactiveFormsModule,
     ApiAutomationModule,
-    MockServerModule
+    MockServerModule,
+    ProtocolAutomationModule,
+    UserManagementModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
