@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~normalize.css/normalize.css";
 @import "~@ag-grid-community/all-modules/dist/styles/ag-grid.css";
 @import "~@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
+@import "assets/scss/partials/loading";
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
@@ -39,6 +41,55 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .h-p-80 {
   height: 80%;
 }
+
+.mat-raised-button .mat-button-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+//button {
+//  &:disabled {
+//    cursor: not-allowed;
+//  }
+//}
+
+.mat-raised-button.mat-button--sm,
+.mat-button.mat-button--sm {
+  width: 20px;
+  height: 26px;
+  line-height: 26px;
+  min-height: 26px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+}
+.header {
+  grid-area: header;
+  z-index: 2;
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, .1);
+}
+.mat-button-wrapper > .mat-icon+span {
+  margin-left: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

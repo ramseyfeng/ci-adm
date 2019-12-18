@@ -1,0 +1,9 @@
+.container {
+  padding: 10px 0;
+  .header {
+    height: 50px;
+    &__title {
+      font-weight: 500;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<div class="container mat-typography" fxLayout="column" fxFill>
+  <div class="header" fxLayoutAlign="space-between center">
+    <div class="header__title">List of started git agents</div>
+    <button mat-raised-button (click)="deleteAll()" color="warn">Delete All</button>
+  </div>
+  <div fxFlex>
+    <ag-grid-angular
+      class="ag-theme-balham height--100 width--100"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      rowSelection="multiple"
+      [modules]="modules"
+      [frameworkComponents]="frameworkComponents"
+      (gridReady)="onGridReady($event)"
+    >
+    </ag-grid-angular>
+  </div>
+</div>

@@ -1,0 +1,116 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.flex {
+  display: flex;
+}
+
+div {
+  border: 1px solid white;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.header {
+  grid-area: header;
+  background-color: cyan;
+}
+
+.main {
+  grid-area: main;
+  background-color: green;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: red;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: yellow;
+}
+
+.overview {
+  grid-area: overview;
+  background-color: pink;
+}
+
+.toolbar {
+  grid-area: toolbar;
+  background-color: silver;
+}
+
+.listview {
+  grid-area: listview;
+  background-color: purple;
+}
+
+
+
+
+.container {
+  width: 1200px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 60px 1fr 30px;
+  grid-template-areas:
+    "header header header header"
+    "sidebar main main main"
+    "footer footer footer footer";
+}
+
+.main {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 120px 50px 1fr;
+  grid-gap: 10px 10px;
+  grid-template-areas:
+    "overview overview overview"
+    "toolbar toolbar toolbar"
+    "listview listview listview";
+  justify-content: space-around;
+}
+
+/*
+.overview {
+  height: 120px;
+  display: flex;
+}
+
+.overview-item {
+  flex: 1 1 auto;
+}
+
+.toolbar {
+  height: 50px;
+  display: flex;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,209 @@
+<div class="mat-typography container" fxLayout="column" fxFill>
+  <div class="form__agent--create" fxFlex="50" fxFlex.gt-lg="35">
+    <!--<h2 class="title">Start Git Agent</h2>
+    <mat-progress-bar mode="indeterminate" *ngIf="startInProgressing"></mat-progress-bar>-->
+    <form
+      fxLayout="column"
+      novalidate
+      (ngSubmit)="createAgent()"
+      [formGroup]="gitAgentForm"
+    >
+      <div fxLayoutAlign="end center" class="action-row">
+        <button
+          mat-raised-button
+          type="submit"
+          color="primary"
+          [disabled]="!gitAgentForm.valid"
+        >
+          <mat-icon>play_circle_outline</mat-icon>
+          <span>Add Agent</span>
+        </button>
+      </div>
+      <div
+        fxLayout="row"
+        fxLayoutGap="20px"
+        fxLayoutGap.lt-md="0px"
+      >
+        <mat-form-field fxFlex>
+          <input
+            matInput
+            placeholder="Agent Name"
+            formControlName="agentName"
+            [ngClass]="{
+            'is-invalid':
+              (gitAgentForm.get('agentName').touched ||
+                gitAgentForm.get('agentName').dirty) &&
+              !gitAgentForm.get('agentName').valid
+          }"
+          />
+          <mat-error
+            *ngIf="
+            (gitAgentForm.get('agentName').touched ||
+              gitAgentForm.get('agentName').dirty) &&
+            !gitAgentForm.get('agentName').valid
+          "
+          >
+            Required field, must at least 3 characters.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex>
+          <input
+            matInput
+            placeholder="Tenant"
+            formControlName="tenant"
+            [ngClass]="{
+            'is-invalid':
+              (gitAgentForm.get('tenant').touched ||
+                gitAgentForm.get('tenant').dirty) &&
+              !gitAgentForm.get('tenant').valid
+          }"
+          />
+          <mat-error
+            *ngIf="
+            (gitAgentForm.get('tenant').touched ||
+              gitAgentForm.get('tenant').dirty) &&
+            !gitAgentForm.get('tenant').valid
+          "
+          >
+            Required field.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex>
+          <input
+            matInput
+            placeholder="Project ID"
+            formControlName="projectId"
+            [ngClass]="{
+            'is-invalid':
+              (gitAgentForm.get('projectId').touched ||
+                gitAgentForm.get('projectId').dirty) &&
+              !gitAgentForm.get('projectId').valid
+          }"
+          />
+          <mat-error
+            *ngIf="
+            (gitAgentForm.get('projectId').touched ||
+              gitAgentForm.get('projectId').dirty) &&
+            !gitAgentForm.get('projectId').valid
+          "
+          >
+            Required field.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div
+        fxLayout="row"
+        fxLayoutGap="20px"
+        fxLayoutGap.lt-md="0px"
+      >
+        <mat-form-field fxFlex>
+          <mat-label>Environment</mat-label>
+          <mat-select formControlName="environment" (selectionChange)="selectEnv($event)" required>
+            <mat-option
+              *ngFor="let env of environments"
+              [value]="env.name"
+            >
+              {{ env.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="gitAgentForm.get('environment').touched"
+          >Please choose an enviornment.
+          </mat-error
+          >
+        </mat-form-field>
+        <mat-form-field fxFlex>
+          <input
+            matInput
+            placeholder="Host"
+            formControlName="host"
+            [ngClass]="{
+            'is-invalid':
+              (gitAgentForm.get('host').touched ||
+                gitAgentForm.get('host').dirty) &&
+              !gitAgentForm.get('host').valid
+          }"
+          />
+          <mat-error
+            *ngIf="
+            (gitAgentForm.get('host').touched ||
+              gitAgentForm.get('host').dirty) &&
+            !gitAgentForm.get('host').valid
+          "
+          >
+            Required field.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex>
+          <input
+            matInput
+            placeholder="Port"
+            formControlName="port"
+            [ngClass]="{
+            'is-invalid':
+              (gitAgentForm.get('port').touched ||
+                gitAgentForm.get('port').dirty) &&
+              !gitAgentForm.get('port').valid
+          }"
+          />
+          <mat-error
+            *ngIf="
+            (gitAgentForm.get('port').touched ||
+              gitAgentForm.get('port').dirty) &&
+            !gitAgentForm.get('port').valid
+          "
+          >
+            Required field.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div formArrayName="repository">
+        <div
+          [formGroupName]="i"
+          *ngFor="let gitRep of repository.controls; let i = index"
+        >
+          <div
+            fxLayout="row"
+            fxLayoutGap="20px"
+          >
+            <mat-form-field fxFlex>
+              <input matInput placeholder="Git URL" formControlName="url"/>
+              <mat-error>
+                Required field.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex>
+              <input matInput placeholder="Git Branch" formControlName="branch"/>
+              <mat-error>
+                Required field.
+              </mat-error>
+            </mat-form-field>
+
+            <div fxFlex>
+              <button
+                mat-icon-button
+                type="button"
+                [disabled]="repository.length === 3"
+                (click)="addGitRep()"
+                color="primary"
+              >
+                <mat-icon>add_box</mat-icon>
+              </button>
+              <button
+                mat-icon-button
+                type="button"
+                [disabled]="repository.length === 1"
+                (click)="deleteGitRep(i)"
+                color="primary"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <mat-divider></mat-divider>
+  <ct-active-agents fxFlex="50" fxFlex.gt-lg="65"></ct-active-agents>
+</div>

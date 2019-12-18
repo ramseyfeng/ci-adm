@@ -1,0 +1,12 @@
+@import '~src/styles';
+.sidebar-men-toggle {
+  z-index: 1;
+  @extend .absolute;
+  @extend .position-top-0;
+}
+.mat-sidenav {
+  width: 200px;
+}
+.active {
+  background-color: darken(white, 6);
+}
