@@ -1,1 +1,17 @@
-<p>protocol-automation-home works!</p>
+<mat-sidenav-container fxFill>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'create-test'" (click)="sidenav.close()"> Create Test </a>
+      <a mat-list-item [routerLink]="'results'" (click)="sidenav.close()"> Results </a>
+      <a mat-list-item [routerLink]="'running-tests'" (click)="sidenav.close()"> Running Tests </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+    <span class="sidebar-men-toggle">
+      <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+    </span>
+  </mat-sidenav-content>
+</mat-sidenav-container>

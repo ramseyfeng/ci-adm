@@ -1,0 +1,6 @@
+@import '~src/styles';
+.sidebar-men-toggle {
+  z-index: 1;
+  @extend .absolute;
+  @extend .position-top-0;
+}

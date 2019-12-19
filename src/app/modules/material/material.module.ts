@@ -13,7 +13,7 @@ import {
   MatSelectModule,
   MatInputModule,
   MatDividerModule,
-  MatProgressBarModule
+  MatProgressBarModule, MatStepperModule, MatRadioModule
 } from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
@@ -32,7 +32,9 @@ const materials = [
   MatSelectModule,
   MatInputModule,
   MatDividerModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatStepperModule,
+  MatRadioModule
 ]
 
 @NgModule({
