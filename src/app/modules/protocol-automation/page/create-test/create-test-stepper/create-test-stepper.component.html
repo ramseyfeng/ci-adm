@@ -1,69 +1,24 @@
 <div fxFill fxLayout="center center" class="container">
-  <mat-horizontal-stepper #stepper labelPosition="bottom" fxFill>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Fill out your name</ng-template>
-        <div fxLayout="row" fxFill fxLayoutGap="20px">
-          <mat-form-field fxFlex>
-            <mat-label>Favorite food</mat-label>
-            <mat-select
-              formControlName="envCtrl"
-              (selectionChange)="selectEnv($event)"
-              required
-            >
-              <mat-option *ngFor="let env of envs" [value]="env.name">
-                {{ env.name }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field fxFlex>
-            <input
-              matInput
-              placeholder="Tenant"
-              formControlName="tenantCtrl"
-              required
-            />
-          </mat-form-field>
-          <mat-form-field fxFlex>
-            <input
-              matInput
-              placeholder="ProjectId"
-              formControlName="projectIdCtrl"
-              required
-            />
-          </mat-form-field>
-        </div>
-        <div fxLayout="center center">
-          <mat-progress-bar
-            *ngIf="progressing"
-            mode="indeterminate"
-          ></mat-progress-bar>
-          <button
-            *ngIf="!progressing"
-            type="submit"
-            (click)="f1Next(stepper)"
-            mat-button
-            [disabled]="!firstFormGroup.valid"
-          >
-            Next
-          </button>
-        </div>
-      </form>
+  <mat-horizontal-stepper linear #stepper labelPosition="bottom" fxFill>
+    <mat-step [stepControl]="stepOne.firstFormGroup">
+      <ng-template matStepLabel>Environment</ng-template>
+      <ct-create-test-stepper-one #stepOne></ct-create-test-stepper-one>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-      <ng-template matStepLabel>Choose Protocols</ng-template>
-      <form [formGroup]="secondFormGroup">
-        <mat-radio-group formControlName="protocolCtrl" fxLayout="row wrap" fxLayoutGap="20px">
-          <mat-radio-button *ngFor="let protocol of protocols" [value]="protocol.name">{{protocol.name}}</mat-radio-button>
-        </mat-radio-group>
-        <div fxLayout="center center">
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
+    <mat-step [stepControl]="stepTwo.secondFormGroup">
+      <ng-template matStepLabel>Protocols</ng-template>
+      <ct-create-test-stepper-two #stepTwo></ct-create-test-stepper-two>
     </mat-step>
+    <mat-step [stepControl]="stepThree.thirdFormGroup">
+      <ng-template matStepLabel>Features</ng-template>
+      <ct-create-test-stepper-three #stepThree></ct-create-test-stepper-three>
+    </mat-step>
+    <mat-step [stepControl]="stepFour.forthFormGroup">
+      <ng-template matStepLabel>Regions</ng-template>
+      <ct-create-test-stepper-four #stepFour></ct-create-test-stepper-four>
+    </mat-step>
+
     <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
+      <ng-template matStepLabel>Location</ng-template>
       You are now done.
       <div>
         <button mat-button matStepperPrevious>Back</button>

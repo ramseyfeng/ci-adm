@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatSidenav} from '@angular/material';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'ct-api-automation-home',
@@ -7,7 +7,7 @@ import {MatSidenav} from '@angular/material';
   styleUrls: ['./api-automation-home.component.scss']
 })
 export class ApiAutomationHomeComponent implements OnInit {
-  @ViewChild('sidenav', {static: false}) sidenav: MatSidenav;
+  @ViewChild('sidenav') sidenav: MatSidenav;
   reason = '';
   constructor() { }
 

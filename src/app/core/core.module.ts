@@ -3,15 +3,18 @@ import { CommonModule } from '@angular/common';
 import {NavbarComponent} from './navbar/navbar.component';
 import {MaterialModule} from '../modules/material/material.module';
 import {RouterModule} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [NavbarComponent],
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
+    FormsModule,
     NavbarComponent
   ]
 })

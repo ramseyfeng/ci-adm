@@ -1,0 +1,18 @@
+<form [formGroup]="secondFormGroup">
+  <div class="section">
+    <h3>Protocols</h3>
+    <mat-radio-group formControlName="protocolCtrl" (change)="protocolChange($event)" class="protocols-wrapper">
+      <mat-radio-button *ngFor="let protocol of protocols$ | async" [value]="protocol">{{protocol.name}}</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div class="section">
+    <h3>Locations</h3>
+    <mat-radio-group formControlName="locationCtrl" (change)="locationChange($event)" class="locations-wrapper" fxLayout="row" fxLayoutGap="10px">
+      <mat-radio-button *ngFor="let location of locationsPerProtocol$ | async" [value]="location.id">{{location.name}}</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div class="actions-wrapper">
+    <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+    <button mat-raised-button color="primary" matStepperNext>Next</button>
+  </div>
+</form>

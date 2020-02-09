@@ -1,0 +1,16 @@
+<form [formGroup]="thirdFormGroup">
+  <div class="section">
+    <h3>Features</h3>
+    <div class="section__content-wrapper">
+      <div formArrayName="features" *ngFor="let feature of thirdFormGroup.controls.features['controls']; let i = index">
+        <mat-checkbox [formControlName]="i">
+          {{featuresData[i].feature_name}}
+        </mat-checkbox>
+      </div>
+    </div>
+  </div>
+  <div class="actions-wrapper">
+    <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+    <button mat-raised-button color="primary" matStepperNext>Next</button>
+  </div>
+</form>

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, pipe} from 'rxjs';
-import {map, tap} from 'rxjs/operators';
+import {map, shareReplay, tap} from 'rxjs/operators';
 import {
   IAPIGetProtocolsResponse,
   IProtocol
@@ -16,10 +16,9 @@ export class ProtocolService {
 
   url = '/protocols';
 
-  private protocols: IProtocol[];
+  protocols$: Observable<IProtocol[]> = this.http
+    .get<IAPIGetProtocolsResponse>(this.url).pipe(
+      shareReplay(1),
+      map(data => data.results));
 
-  getProtocols(): Observable<IProtocol[]> {
-    return this.http
-      .get<IAPIGetProtocolsResponse>(this.url).pipe(map(data => data.results));
-  }
 }

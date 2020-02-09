@@ -1,0 +1,46 @@
+<form [formGroup]="firstFormGroup">
+  <div fxLayout="row" fxFill fxLayoutGap="20px">
+    <mat-form-field fxFlex>
+      <mat-label>Environment</mat-label>
+      <mat-select
+        formControlName="envCtrl"
+        (selectionChange)="selectEnv($event)"
+        required
+      >
+        <mat-option *ngFor="let env of envs" [value]="env.name">
+          {{ env.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field fxFlex>
+      <input
+        matInput
+        placeholder="Tenant"
+        formControlName="tenantCtrl"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field fxFlex>
+      <input
+        matInput
+        placeholder="ProjectId"
+        formControlName="projectIdCtrl"
+        required
+      />
+    </mat-form-field>
+  </div>
+  <div fxLayout="center center">
+    <!--<mat-progress-bar
+      *ngIf="progressing"
+      mode="indeterminate"
+    ></mat-progress-bar>-->
+    <button
+      type="submit"
+      mat-button
+      matStepperNext
+      [disabled]="!firstFormGroup.valid"
+    >
+      Next
+    </button>
+  </div>
+</form>
